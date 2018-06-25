@@ -1,0 +1,30 @@
+{{#layout}}
+    {{#css}}
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/css/myShop.css" rel="stylesheet">
+    {{/css}}
+
+    {{#title}}Cassini-Pilot1{{/title}}
+
+    <!-- Title -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h3>주문 결과</h3>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            주문이 완료되었습니다!!!!
+            <br/>
+            <span>포인트 잔고 : {{orderResult.remainPoint}}</span>
+        </div>
+    </div>
+    <!-- /.row -->
+    {{#script}}
+        <script type="text/javascript" src="/js/jquery.js"></script>
+    {{/script}}
+{{/layout}}

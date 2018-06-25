@@ -1,0 +1,108 @@
+{{#layout}}
+    {{#css}}
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="/css/myShop.css" rel="stylesheet">
+    {{/css}}
+
+    {{#title}}Cassini-Pilot1{{/title}}
+
+    <div class="row">
+        <div class="col-sm-12 col-md-10 col-md-offset-1">
+            <table class="table ">
+                <thead>
+                <tr>
+                    <th>상품명</th>
+                    <th>수량</th>
+                    <th class="text-center">가격</th>
+                    <th class="text-center">합계</th>
+                </tr>
+                </thead>
+                <tbody id="shoppingCart">
+                {{#orderFormData}}
+                <tr>
+                    <td class="col-sm-9 col-md-7">
+
+                        <div class="media">
+                            <a class=" pull-left"> <img class="media-object" src="/images/product-icon.png" style="width: 72px; height: 72px;"> </a>
+                            <div class="media-body">
+                                <h4 class="media-heading"><a >{{item.name}}</a></h4>
+                                <span>상태: </span><span class="text-success"><strong>{{stockStatusMessage}}</strong></span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="col-sm-1 col-md-1" style="text-align: center">
+                        <input type="email" class="form-control" disabled readonly id="txtOrderQuantity" value="{{orderQty}}">
+                    </td>
+                    <td class="col-sm-1 col-md-1 text-center"><strong>{{item.currency}} {{item.price}}</strong></td>
+                    <td class="col-sm-1 col-md-1 text-center"><strong>{{item.currency}} {{totalPrice}}</strong></td>
+                </tr>
+                <tr>
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <h5>차감 포인트 / 보유포인트</h5>
+                    </td>
+                    <td class="col-md-2 text-right">
+                        <h5><strong>{{deductTargetPoint}} / {{totalPoint}}</strong></h5>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <h5>배송비</h5>
+                    </td>
+                    <td class="col-md-2 text-right">
+                        <h5><strong>{{item.currency}} 0</strong></h5>
+                    </td>
+                </tr>
+
+                <tr>
+
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <h3>총</h3>
+                    </td>
+                    <td class="col-md-2  text-right">
+                        <h3><strong>{{item.currency}} {{totalPrice}}</strong></h3>
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>   </td>
+                    <td>   </td>
+                    <td>
+                        <a href="javascript:history.back();" type="button" class="btn btn-default">
+                            <span class="glyphicon glyphicon-shopping-cart"></span> 상품페이지 돌아가기
+                        </a>
+                    </td>
+                    <td class="col-md-2  text-right">
+                        <button type="button" id="btnAcceptOrder" class="btn btn-success">
+                            결제 하기(Bypass) <span class="glyphicon glyphicon-play"></span>
+                        </button></td>
+                </tr>
+                {{/orderFormData}}
+                </tbody>
+            </table>
+            <div style="display:none;">
+                <form id="orderForm"  method="get">
+                    <div>
+                        {{#orderFormData}}
+                            <input name="ItemNo" id="txtItemNo" type="text" value="{{item.id}}">
+                            <input type="text" id="txtOrderQty" name="OrderQty" value="0">
+                        {{/orderFormData}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {{#script}}
+        <script type="text/javascript" src="/js/jquery.js"></script>
+        <script type="text/javascript" src="/js/webapp/orderform.js"></script>
+    {{/script}}
+{{/layout}}

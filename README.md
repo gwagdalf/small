@@ -1,4 +1,21 @@
-# small
-simple mall
+# S-mall
+===============================
+simple mall project
 
-update & push 되나요? ( 곽형섭 )
+##team
+* gwagdalf <https://github.com/gwagdalf>
+* seulkim0 <https://github.com/seulkim0>
+* sermayar <https://github.com/sermayar>
+
+##member
+* login : <http://localhost:8080/members/login>
+
+##item
+* item listing <http://localhost:8080/items/listing/>
+
+* item view <http://localhost:8080/items/viewitem/3>
+
+
+
+
+
