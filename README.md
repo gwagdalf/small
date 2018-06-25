@@ -20,7 +20,7 @@ simple mall project
 
 ## entity diagram
 <https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_entity_diagram_2018_06_08.png>
-![entity diagram](https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_item_view_page_2018_06_25.png?raw=true)
+![entity diagram](https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_entity_diagram_2018_06_08.png?raw=true)
 
 
 
