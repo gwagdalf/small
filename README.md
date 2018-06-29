@@ -20,8 +20,10 @@ simple mall project
 
 ## order pages
 * order page : <http://localhost:8080/order/form?ItemNo=3&OrderQty=1>
-* order complete : <http://localhost:8080/order/placeOrder?ItemNo=3&OrderQty=1>
+-<https://raw.githubusercontent.com/gwagdalf/small/master/_document/image/S_Mall_order_page_2018_06_29.png>
 ![order_page](https://raw.githubusercontent.com/gwagdalf/small/master/_document/image/S_Mall_order_page_2018_06_29.png?raw=true)
+* order complete : <http://localhost:8080/order/placeOrder?ItemNo=3&OrderQty=1>
+-<https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_order_complete_page_2018_06_29.png>
 ![order_complete_page](https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_order_complete_page_2018_06_29.png?raw=true)
 
 ## epilogue
