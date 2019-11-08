@@ -25,3 +25,16 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+pom.xml.versionsBackup
+out/

@@ -2,7 +2,6 @@ package com.small.mustache;
 
 import com.samskivert.mustache.Mustache;
 import java.util.Map;
-import org.omg.CORBA.Object;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;

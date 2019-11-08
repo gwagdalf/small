@@ -1,5 +1,6 @@
 package com.small.config;
 
+import org.apache.commons.lang.UnhandledException;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -18,7 +19,7 @@ public class WebApplicationSecurity
     // 인증 처리를 아예 하지 않게 하고 싶을 경우
     // /css/** , /js/**, /images/** , /webjars/** 등
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
         web.ignoring()
                 .requestMatchers(PathRequest.toStaticResources()
                         .atCommonLocations())
