@@ -22,10 +22,11 @@ public class MemberApiController {
         return memberService.getMembers();
     }
 
-    //http://localhost:8080/api/members/1
+
+
     @GetMapping(path = "/{id}")
     public Member getMember(MyHeader myHeader,
-                            @PathVariable(name="id") Long id){
+        @PathVariable(name="id") Long id){
         System.out.println(myHeader.getAccept());
         System.out.println(myHeader.getHost());
         return memberService.getMember(id);

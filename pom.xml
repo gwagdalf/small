@@ -93,6 +93,10 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-openfeign-core</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.github.openfeign</groupId>
 			<artifactId>feign-jackson</artifactId>
 		</dependency>
@@ -108,36 +112,22 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>ch.simas.qlrm</groupId>
+			<artifactId>qlrm</artifactId>
+			<version>1.7.1</version>
+		</dependency>
 
-		<!--<dependency>-->
-			<!--<groupId>org.springframework.cloud</groupId>-->
-			<!--<artifactId>spring-cloud-starter-openfeign</artifactId>-->
-      <!--<version>1.4.2.RELEASE</version>-->
-		<!--</dependency>-->
+
 	</dependencies>
-
-	<!--<dependencyManagement>-->
-		<!--<dependencies>-->
-			<!--<dependency>-->
-				<!--<groupId>org.springframework.cloud</groupId>-->
-				<!--<artifactId>spring-cloud-starter-parent</artifactId>-->
-				<!--<version>1.0.1.RELEASE</version>-->
-				<!--<type>pom</type>-->
-				<!--<scope>import</scope>-->
-			<!--</dependency>-->
-		<!--</dependencies>-->
-	<!--</dependencyManagement>-->
-
-	<!--<repositories>-->
-		<!--<repository>-->
-			<!--<id>spring-snapshots</id>-->
-			<!--<name>Spring Snapshots</name>-->
-			<!--<url>https://repo.spring.io/libs-snapshot</url>-->
-			<!--<snapshots>-->
-				<!--<enabled>true</enabled>-->
-			<!--</snapshots>-->
-		<!--</repository>-->
-	<!--</repositories>-->
 
 	<build>
 		<plugins>

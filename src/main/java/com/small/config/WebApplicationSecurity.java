@@ -1,11 +1,13 @@
 package com.small.config;
 
 import org.apache.commons.lang.UnhandledException;
+import org.springframework.boot.actuate.autoconfigure.security.servlet.EndpointRequest;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
@@ -13,18 +15,24 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 // spring security에 대한 설정을 하기 위해서 WebSecurityConfigurerAdapter
 // 를 상속받는다.
 @Configuration
+@EnableWebSecurity
 public class WebApplicationSecurity
             extends WebSecurityConfigurerAdapter{
 
     // 인증 처리를 아예 하지 않게 하고 싶을 경우
     // /css/** , /js/**, /images/** , /webjars/** 등
     @Override
-    public void configure(WebSecurity web) {
+    public void configure(WebSecurity web){
         web.ignoring()
                 .requestMatchers(PathRequest.toStaticResources()
                         .atCommonLocations())
                 .requestMatchers(
-                        new AntPathRequestMatcher("/**.html"));
+                        new AntPathRequestMatcher("/**.html"))
+                .requestMatchers(
+                    new AntPathRequestMatcher("/actuator/**"));
+
+
+
 
     }
 
@@ -33,30 +41,33 @@ public class WebApplicationSecurity
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                .logout()
-                    .logoutRequestMatcher(
-                            new AntPathRequestMatcher("/logout"))
-                        .logoutSuccessUrl("/").and()
-                .authorizeRequests()
-                    .antMatchers("/").permitAll()
-                    .antMatchers("/members/joinform").permitAll()
-                    .antMatchers(HttpMethod.POST,
-                            "/members/join").permitAll()
-                    .antMatchers("/members/welcome").permitAll()
-                    .antMatchers("/members/login").permitAll()
-                    .antMatchers("/members/**").hasRole("USER")
-                    .antMatchers("/api/**").hasRole("USER")
-                    .antMatchers("/h2-console/**").permitAll()
-                    .anyRequest().fullyAuthenticated()
-                .and().headers().frameOptions().disable()
-                .and()
-                    .csrf().ignoringAntMatchers("/**")// post방식으로 값을 전달할 때 csrf를 무시
-                .and()
-                .formLogin()
-                    .loginProcessingUrl("/members/login")
-                    .loginPage("/members/login")
-                    .usernameParameter("id")
-                    .passwordParameter("password")
+        .logout()
+            .logoutRequestMatcher(
+                    new AntPathRequestMatcher("/logout"))
+                .logoutSuccessUrl("/").and()
+        .authorizeRequests()
+            .antMatchers("/").permitAll()
+            .requestMatchers(EndpointRequest.to("health", "flyway","info")).permitAll()
+            .requestMatchers(EndpointRequest.toAnyEndpoint()).hasRole("ENDPOINT_ADMIN")
+            .antMatchers("/members/joinform").permitAll()
+            .antMatchers(HttpMethod.POST,
+                    "/members/join").permitAll()
+            .antMatchers("/members/welcome").permitAll()
+            .antMatchers("/members/login").permitAll()
+            .antMatchers("/members/**").hasRole("USER")
+            .antMatchers("/h2-console/**").permitAll()
+            .antMatchers("/actuator/**").permitAll()
+            .antMatchers("/api/**").permitAll()
+            .anyRequest().fullyAuthenticated()
+        .and().headers().frameOptions().disable()
+        .and()
+            .csrf().ignoringAntMatchers("/**")// post방식으로 값을 전달할 때 csrf를 무시
+        .and()
+        .formLogin()
+            .loginProcessingUrl("/members/login")
+            .loginPage("/members/login")
+            .usernameParameter("id")
+            .passwordParameter("password")
         ;
     }
 }

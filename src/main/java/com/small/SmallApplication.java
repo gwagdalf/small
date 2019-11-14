@@ -11,6 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -25,6 +28,9 @@ import java.util.List;
 3. addArgumentResolvers 메소드 오버라이딩 후 1에서 작성한 클래스 등록
 4. controller메소드에서 MyHeader를 파라미터로 적어주면 자동으로 객체가 주입된다.
  */
+
+@EnableCircuitBreaker
+@EnableFeignClients
 @SpringBootApplication
 public class SmallApplication implements WebMvcConfigurer {
 
@@ -58,6 +64,7 @@ public class SmallApplication implements WebMvcConfigurer {
 				Random random = new Random();
 
 				Item item = new Item();
+				item.setCatalogId(1100L);
 				item.setCurrency("KRW");
 				item.setIsActive(true);
 				item.setDescription("상세설명 테스트상세설명 테스트상세설명 테스트상세설명 테스트상세설명 테스트");

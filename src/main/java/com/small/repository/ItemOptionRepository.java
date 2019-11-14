@@ -10,7 +10,11 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ItemOptionRepository extends JpaRepository<ItemOption, Long> {
 
-    @HystrixCommand
+//    @HystrixCommand(
+//        threadPoolKey = "MemberRepository",
+//        groupKey = "MemberRepository",
+//        commandKey = "ItemOptionRepository_findByItemId"
+//    )
     Optional<ItemOption> findByItemId(Long itemId);
 }
 

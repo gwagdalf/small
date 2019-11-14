@@ -29,4 +29,11 @@ public class MemberRole {
             member.getMemberRoles().add(this);
         }
     }
+
+    public MemberRole(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+    public MemberRole() {}
+
 }

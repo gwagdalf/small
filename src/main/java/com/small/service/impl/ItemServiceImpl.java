@@ -2,6 +2,7 @@ package com.small.service.impl;
 
 import com.small.domain.Item;
 import com.small.domain.ItemOption;
+import com.small.repository.ItemNativeReposiotry;
 import com.small.repository.ItemOptionRepository;
 import com.small.repository.ItemRepository;
 import com.small.service.ItemService;
@@ -17,6 +18,9 @@ public class ItemServiceImpl implements ItemService {
 
     @Autowired
     private ItemRepository itemRepository;
+
+    @Autowired
+    private ItemNativeReposiotry itemNativeReposiotry;
 
     @Autowired
     private ItemOptionRepository itemOptionRepository;
@@ -52,7 +56,8 @@ public class ItemServiceImpl implements ItemService {
      */
     @Override
     public Optional<Item> getItemById(long id) {
-        return itemRepository.findById(id);
+        return itemNativeReposiotry.findById(id);
+//        return itemRepository.findById(id);
     }
 
     /**

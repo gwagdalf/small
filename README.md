@@ -9,6 +9,7 @@ simple mall project
 
 ## member pages
 * login : <http://localhost:8080/members/login>
+* join : <http://localhost:8080/members/joinform>
 
 ## item pages
 * item listing <http://localhost:8080/items/listing/>
@@ -25,6 +26,14 @@ simple mall project
 * order complete : <http://localhost:8080/order/placeOrder?ItemNo=3&OrderQty=1>
 -<https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_order_complete_page_2018_06_29.png>
 ![order_complete_page](https://github.com/gwagdalf/small/blob/master/_document/image/S_Mall_order_complete_page_2018_06_29.png?raw=true)
+
+## monitoring
+* actutator : <http://localhost:8081/actuator>
+* actutator-prometheus : <http://localhost:8081/actuator/prometheus>
+
+## db
+* h2 : <http://localhost:8080/h2-console>
+
 
 ## epilogue
 Due to busy schedule, We could not implement [** payment/login context **].
