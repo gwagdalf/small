@@ -26,7 +26,7 @@ var ViewItem = function () {
 	        $("#txtOrderQty").val($("#txtOrderQuantity").val());
 
 	        var sForm = $("#orderForm");
-	        sForm.attr("action", "http://localhost:8080/order/form").submit();
+	        sForm.attr("action", "/order/form").submit();
 
 
 	    }
