@@ -1,4 +1,5 @@
-[![OpenShift](https://github.com/gwagdalf/small/actions/workflows/openshift.yml/badge.svg)](https://github.com/gwagdalf/small/actions/workflows/openshift.yml)
+[![CI](https://github.com/gwagdalf/small/actions/workflows/main.yml/badge.svg)](https://github.com/gwagdalf/small/actions/workflows/main.yml)
+
 
 S-mall
 ======================
