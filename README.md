@@ -1,3 +1,5 @@
+[![OpenShift](https://github.com/gwagdalf/small/actions/workflows/openshift.yml/badge.svg)](https://github.com/gwagdalf/small/actions/workflows/openshift.yml)
+
 S-mall
 ======================
 simple mall project
